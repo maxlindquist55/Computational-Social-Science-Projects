@@ -5,3 +5,15 @@ git clone https://github.com/maxlindquist55/Computational-Social-Science-Project
 ###Create text file titled "Project 1"
 
 touch "Project 1.txt"
+
+###Added Project 1.txt to repository
+
+git add "Project 1.txt"
+
+###Committed Project 1.txt and added message to repository
+
+git commit -m "Added new text to 'Project 1.txt'"
+
+###Pushed changes in Project 1.txt to repository
+
+git push
