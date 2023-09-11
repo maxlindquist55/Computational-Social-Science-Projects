@@ -1,0 +1,7 @@
+###Clone repository
+
+git clone https://github.com/maxlindquist55/Computational-Social-Science-Projects.git
+
+###Create text file titled "Project 1"
+
+touch "Project 1.txt"
