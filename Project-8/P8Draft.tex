@@ -1,0 +1,2018 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Project 8 Template},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Project 8 Template}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Add to this package list for additional SL algorithms}
+\NormalTok{pacman}\SpecialCharTok{::}\FunctionTok{p\_load}\NormalTok{(}
+\NormalTok{  tidyverse,}
+\NormalTok{  ggthemes,}
+\NormalTok{  ltmle,}
+\NormalTok{  tmle,}
+\NormalTok{  SuperLearner,}
+\NormalTok{  tidymodels,}
+\NormalTok{  caret,}
+\NormalTok{  dagitty,}
+\NormalTok{  ggdag,}
+\NormalTok{  here)}
+
+\NormalTok{heart\_disease }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{\textquotesingle{}heart\_disease\_tmle.csv\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 10000 Columns: 14
+## -- Column specification --------------------------------------------------------
+## Delimiter: ","
+## dbl (14): age, sex_at_birth, simplified_race, college_educ, income_thousands...
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(heart\_disease)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 14
+##     age sex_at_birth simplified_race college_educ income_thousands   bmi
+##   <dbl>        <dbl>           <dbl>        <dbl>            <dbl> <dbl>
+## 1  32.9            0               1            2             91.3  27.1
+## 2  53.9            1               1            2             38.8  27.6
+## 3  65.3            1               3            2             35.5  27.5
+## 4  16.8            1               1            2             93.8  24.9
+## 5  56.1            1               1            2             85.7  22.8
+## 6  57.2            1               1            2             70.8  24.0
+## # i 8 more variables: blood_pressure <dbl>, chol <dbl>,
+## #   blood_pressure_medication <dbl>, bmi_2 <dbl>, blood_pressure_2 <dbl>,
+## #   chol_2 <dbl>, blood_pressure_medication_2 <dbl>, mortality <dbl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{heart\_disease }\OtherTok{\textless{}{-}}\NormalTok{ heart\_disease }\SpecialCharTok{\%\textgreater{}\%}
+  \CommentTok{\# Recoding college\_educ}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{college\_educ =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{    college\_educ }\SpecialCharTok{==} \DecValTok{2} \SpecialCharTok{\textasciitilde{}} \DecValTok{1}\NormalTok{,}
+\NormalTok{    college\_educ }\SpecialCharTok{==} \DecValTok{1} \SpecialCharTok{\textasciitilde{}} \DecValTok{0}\NormalTok{,}
+    \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ college\_educ  }\CommentTok{\# Keeps other values unchanged, if any}
+\NormalTok{  )) }
+  \CommentTok{\# Recoding simplified\_race}
+\NormalTok{  heart\_disease }\OtherTok{\textless{}{-}}\NormalTok{ heart\_disease }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{White\_Caucasian =} \FunctionTok{if\_else}\NormalTok{(simplified\_race }\SpecialCharTok{==} \DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+         \AttributeTok{Black\_African\_American =} \FunctionTok{if\_else}\NormalTok{(simplified\_race }\SpecialCharTok{==} \DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+         \AttributeTok{Latinx =} \FunctionTok{if\_else}\NormalTok{(simplified\_race }\SpecialCharTok{==} \DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+         \AttributeTok{Asian\_American =} \FunctionTok{if\_else}\NormalTok{(simplified\_race }\SpecialCharTok{==} \DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+         \AttributeTok{Mixed\_Race\_Other =} \FunctionTok{if\_else}\NormalTok{(simplified\_race }\SpecialCharTok{==} \DecValTok{5}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{))}
+
+\CommentTok{\# Check the changes}
+\FunctionTok{head}\NormalTok{(heart\_disease)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 19
+##     age sex_at_birth simplified_race college_educ income_thousands   bmi
+##   <dbl>        <dbl>           <dbl>        <dbl>            <dbl> <dbl>
+## 1  32.9            0               1            1             91.3  27.1
+## 2  53.9            1               1            1             38.8  27.6
+## 3  65.3            1               3            1             35.5  27.5
+## 4  16.8            1               1            1             93.8  24.9
+## 5  56.1            1               1            1             85.7  22.8
+## 6  57.2            1               1            1             70.8  24.0
+## # i 13 more variables: blood_pressure <dbl>, chol <dbl>,
+## #   blood_pressure_medication <dbl>, bmi_2 <dbl>, blood_pressure_2 <dbl>,
+## #   chol_2 <dbl>, blood_pressure_medication_2 <dbl>, mortality <dbl>,
+## #   White_Caucasian <dbl>, Black_African_American <dbl>, Latinx <dbl>,
+## #   Asian_American <dbl>, Mixed_Race_Other <dbl>
+\end{verbatim}
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+Heart disease is the leading cause of death in the United States, and
+treating it properly is an important public health goal. However, it is
+a complex disease with several different risk factors and potential
+treatments. Physicians typically recommend changes in diet, increased
+exercise, and/or medication to treat symptoms, but it is difficult to
+determine how effective any one of these factors is in treating the
+disease. In this project, you will explore SuperLearner, Targeted
+Maximum Likelihood Estimation (TMLE), and Longitudinal Targeted Maximum
+Likelihood Estimation (LTMLE). Using a simulated dataset, you will
+explore whether taking blood pressure medication reduces mortality risk.
+
+\hypertarget{data}{%
+\section{Data}\label{data}}
+
+This dataset was simulated using R (so it does not come from a previous
+study or other data source). It contains several variables:
+
+\begin{itemize}
+    \item \textbf{blood\_pressure\_medication}: Treatment indicator for whether the individual took blood pressure medication (0 for control, 1 for treatment)
+    \item \textbf{mortality}: Outcome indicator for whether the individual passed away from complications of heart disease (0 for no, 1 for yes)
+    \item \textbf{age}: Age at time 1
+    \item \textbf{sex\_at\_birth}: Sex assigned at birth (0 female, 1 male)
+    \item \textbf{simplified\_race}: Simplified racial category. (1: White/Caucasian, 2: Black/African American, 3: Latinx, 4: Asian American, \newline 5: Mixed Race/Other)
+    \item \textbf{income\_thousands}: Household income in thousands of dollars
+    \item \textbf{college\_educ}: Indicator for college education (0 for no, 1 for yes)
+    \item \textbf{bmi}: Body mass index (BMI)
+    \item \textbf{chol}: Cholesterol level
+    \item \textbf{blood\_pressure}: Systolic blood pressure 
+    \item \textbf{bmi\_2}: BMI measured at time 2
+    \item \textbf{chol\_2}: Cholesterol measured at time 2
+    \item \textbf{blood\_pressure\_2}: BP measured at time 2
+    \item \textbf{blood\_pressure\_medication\_2}: Whether the person took treatment at time period 2 
+\end{itemize}
+
+For the ``SuperLearner'' and ``TMLE'' portions, you can ignore any
+variable that ends in ``\_2'', we will reintroduce these for LTMLE.
+
+\hypertarget{superlearner}{%
+\section{SuperLearner}\label{superlearner}}
+
+\hypertarget{modeling}{%
+\subsection{Modeling}\label{modeling}}
+
+Fit a SuperLearner model to estimate the probability of someone dying
+from complications of heart disease, conditional on treatment and the
+relevant covariates. Do the following:
+
+\begin{enumerate}
+    \item Choose a library of at least 5 machine learning algorithms to evaluate. \textbf{Note}: We did not cover how to hyperparameter tune constituent algorithms within SuperLearner in lab, but you are free to do so if you like (though not required to for this exercise). 
+    \item Split your data into train and test sets.
+    \item Train SuperLearner
+    \item Report the risk and coefficient associated with each model, and the performance of the discrete winner and SuperLearner ensemble
+    \item Create a confusion matrix and report your overall accuracy, recall, and precision
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Fit SuperLearner Model}
+\FunctionTok{listWrappers}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## All prediction algorithm wrappers in SuperLearner:
+\end{verbatim}
+
+\begin{verbatim}
+##  [1] "SL.bartMachine"      "SL.bayesglm"         "SL.biglasso"        
+##  [4] "SL.caret"            "SL.caret.rpart"      "SL.cforest"         
+##  [7] "SL.earth"            "SL.gam"              "SL.gbm"             
+## [10] "SL.glm"              "SL.glm.interaction"  "SL.glmnet"          
+## [13] "SL.ipredbagg"        "SL.kernelKnn"        "SL.knn"             
+## [16] "SL.ksvm"             "SL.lda"              "SL.leekasso"        
+## [19] "SL.lm"               "SL.loess"            "SL.logreg"          
+## [22] "SL.mean"             "SL.nnet"             "SL.nnls"            
+## [25] "SL.polymars"         "SL.qda"              "SL.randomForest"    
+## [28] "SL.ranger"           "SL.ridge"            "SL.rpart"           
+## [31] "SL.rpartPrune"       "SL.speedglm"         "SL.speedlm"         
+## [34] "SL.step"             "SL.step.forward"     "SL.step.interaction"
+## [37] "SL.stepAIC"          "SL.svm"              "SL.template"        
+## [40] "SL.xgboost"
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## All screening algorithm wrappers in SuperLearner:
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "All"
+## [1] "screen.corP"           "screen.corRank"        "screen.glmnet"        
+## [4] "screen.randomForest"   "screen.SIS"            "screen.template"      
+## [7] "screen.ttest"          "write.screen.template"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sl\_select }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}SL.mean\textquotesingle{}}\NormalTok{,}
+               \StringTok{\textquotesingle{}SL.glmnet\textquotesingle{}}\NormalTok{,}
+               \StringTok{\textquotesingle{}SL.ridge\textquotesingle{}}\NormalTok{,}
+               \StringTok{\textquotesingle{}SL.gam\textquotesingle{}}\NormalTok{,}
+               \StringTok{\textquotesingle{}SL.rpartPrune\textquotesingle{}}\NormalTok{)}
+
+
+\DocumentationTok{\#\# Train/Test split}
+\CommentTok{\# {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{heart\_split }\OtherTok{\textless{}{-}} 
+  \FunctionTok{initial\_split}\NormalTok{(heart\_disease, }\AttributeTok{prop =} \DecValTok{3}\SpecialCharTok{/}\DecValTok{4}\NormalTok{) }\CommentTok{\# create initial split (tidymodels)}
+
+
+\CommentTok{\# Training }
+\CommentTok{\# {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{train }\OtherTok{\textless{}{-}} 
+  \CommentTok{\# Declare the training set with rsample::training()}
+  \FunctionTok{training}\NormalTok{(heart\_split)}
+
+\CommentTok{\# y\_train }
+\NormalTok{y\_train }\OtherTok{\textless{}{-}} 
+\NormalTok{  train }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{pull}\NormalTok{(mortality)    }
+
+\CommentTok{\# x\_train  }
+\NormalTok{x\_train }\OtherTok{\textless{}{-}}
+\NormalTok{  train }\SpecialCharTok{\%\textgreater{}\%}
+  \CommentTok{\# drop the target variable}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{mortality, }\SpecialCharTok{{-}}\NormalTok{simplified\_race, }\SpecialCharTok{{-}}\NormalTok{bmi\_2, }\SpecialCharTok{{-}}\NormalTok{blood\_pressure\_2,}\SpecialCharTok{{-}}\NormalTok{chol\_2,}\SpecialCharTok{{-}}\NormalTok{blood\_pressure\_medication\_2)   }
+
+\NormalTok{test }\OtherTok{\textless{}{-}}  
+  \CommentTok{\# Declare the training set with rsample::training()}
+  \FunctionTok{testing}\NormalTok{(heart\_split)}
+
+\CommentTok{\# y test}
+\NormalTok{y\_test }\OtherTok{\textless{}{-}} 
+\NormalTok{  test }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pull}\NormalTok{(mortality)}
+
+\CommentTok{\# x test}
+\NormalTok{x\_test }\OtherTok{\textless{}{-}} 
+\NormalTok{  test }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{mortality, }\SpecialCharTok{{-}}\NormalTok{simplified\_race,}\SpecialCharTok{{-}}\NormalTok{bmi\_2, }\SpecialCharTok{{-}}\NormalTok{blood\_pressure\_2,}\SpecialCharTok{{-}}\NormalTok{chol\_2,}\SpecialCharTok{{-}}\NormalTok{blood\_pressure\_medication\_2)   }
+
+
+\DocumentationTok{\#\# Train SuperLearner}
+
+\CommentTok{\# set seed}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{12345}\NormalTok{)}
+
+
+\NormalTok{heart\_sl }\OtherTok{\textless{}{-}} \FunctionTok{SuperLearner}\NormalTok{(}\AttributeTok{Y =}\NormalTok{ y\_train,              }\CommentTok{\# target}
+                         \AttributeTok{X =}\NormalTok{ x\_train,              }\CommentTok{\# features}
+                         \AttributeTok{family =} \FunctionTok{binomial}\NormalTok{(),      }\CommentTok{\# binomial : 1,0s}
+                         \AttributeTok{SL.library =}\NormalTok{ sl\_select) }\CommentTok{\# find the glmnet algo from SL}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
+## prediction from a rank-deficient fit may be misleading
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+
+## Warning in FUN(X[[i]], ...): prediction from a rank-deficient fit may be misleading
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+
+## Warning in FUN(X[[i]], ...): prediction from a rank-deficient fit may be misleading
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+
+## Warning in FUN(X[[i]], ...): prediction from a rank-deficient fit may be misleading
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+
+## Warning in FUN(X[[i]], ...): prediction from a rank-deficient fit may be misleading
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+
+## Warning in FUN(X[[i]], ...): prediction from a rank-deficient fit may be misleading
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+
+## Warning in FUN(X[[i]], ...): prediction from a rank-deficient fit may be misleading
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+
+## Warning in FUN(X[[i]], ...): prediction from a rank-deficient fit may be misleading
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+
+## Warning in FUN(X[[i]], ...): prediction from a rank-deficient fit may be misleading
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+
+## Warning in FUN(X[[i]], ...): prediction from a rank-deficient fit may be misleading
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge  on full data 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+
+## Warning in FUN(X[[i]], ...): prediction from a rank-deficient fit may be misleading
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in SuperLearner(Y = y_train, X = x_train, family = binomial(),
+## SL.library = sl_select): Coefficients already 0 for all failed algorithm(s)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# predictions}
+\CommentTok{\# {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{preds }\OtherTok{\textless{}{-}} 
+  \FunctionTok{predict}\NormalTok{(heart\_sl,             }\CommentTok{\# use the superlearner not individual models}
+\NormalTok{          x\_test,         }\CommentTok{\# prediction on test set}
+          \AttributeTok{onlySL =} \ConstantTok{TRUE}\NormalTok{)  }\CommentTok{\# use only models that were found to be useful (had weights)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
+## prediction from a rank-deficient fit may be misleading
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# start with y\_test}
+\NormalTok{validation }\OtherTok{\textless{}{-}} 
+\NormalTok{  y\_test }\SpecialCharTok{\%\textgreater{}\%}
+  \CommentTok{\# add our predictions {-} first column of predictions}
+  \FunctionTok{bind\_cols}\NormalTok{(preds}\SpecialCharTok{$}\NormalTok{pred[,}\DecValTok{1}\NormalTok{]) }\SpecialCharTok{\%\textgreater{}\%} 
+  \CommentTok{\# rename columns}
+  \FunctionTok{rename}\NormalTok{(}\AttributeTok{obs =} \StringTok{\textasciigrave{}}\AttributeTok{...1}\StringTok{\textasciigrave{}}\NormalTok{,      }\CommentTok{\# actual observations }
+         \AttributeTok{pred =} \StringTok{\textasciigrave{}}\AttributeTok{...2}\StringTok{\textasciigrave{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# predicted prob}
+  \CommentTok{\# change pred column so that obs above .5 are 1, otherwise 0}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{pred =} \FunctionTok{ifelse}\NormalTok{(pred }\SpecialCharTok{\textgreater{}=}\NormalTok{ .}\DecValTok{5}\NormalTok{, }
+                           \DecValTok{1}\NormalTok{,}
+                           \DecValTok{0}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## New names:
+## * `` -> `...1`
+## * `` -> `...2`
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Risk and Coefficient of each model}
+\NormalTok{heart\_sl}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:  
+## SuperLearner(Y = y_train, X = x_train, family = binomial(), SL.library = sl_select) 
+## 
+## 
+## 
+##                        Risk       Coef
+## SL.mean_All       0.2498358 0.00000000
+## SL.glmnet_All     0.2374257 0.00000000
+## SL.ridge_All             NA 0.00000000
+## SL.gam_All        0.2373813 0.07490502
+## SL.rpartPrune_All 0.2297110 0.92509498
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Discrete winner and superlearner ensemble performance}
+\NormalTok{heart\_sl}\SpecialCharTok{$}\NormalTok{cvRisk[}\FunctionTok{which.min}\NormalTok{(heart\_sl}\SpecialCharTok{$}\NormalTok{cvRisk)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## SL.rpartPrune_All 
+##          0.229711
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Confusion Matrix}
+\NormalTok{caret}\SpecialCharTok{::}\FunctionTok{confusionMatrix}\NormalTok{(}\FunctionTok{as.factor}\NormalTok{(validation}\SpecialCharTok{$}\NormalTok{pred),}
+                       \FunctionTok{as.factor}\NormalTok{(validation}\SpecialCharTok{$}\NormalTok{obs))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction    0    1
+##          0  238   19
+##          1  950 1293
+##                                          
+##                Accuracy : 0.6124         
+##                  95% CI : (0.593, 0.6316)
+##     No Information Rate : 0.5248         
+##     P-Value [Acc > NIR] : < 2.2e-16      
+##                                          
+##                   Kappa : 0.193          
+##                                          
+##  Mcnemar's Test P-Value : < 2.2e-16      
+##                                          
+##             Sensitivity : 0.2003         
+##             Specificity : 0.9855         
+##          Pos Pred Value : 0.9261         
+##          Neg Pred Value : 0.5765         
+##              Prevalence : 0.4752         
+##          Detection Rate : 0.0952         
+##    Detection Prevalence : 0.1028         
+##       Balanced Accuracy : 0.5929         
+##                                          
+##        'Positive' Class : 0              
+## 
+\end{verbatim}
+
+\hypertarget{discussion-questions}{%
+\subsection{Discussion Questions}\label{discussion-questions}}
+
+Question: Why should we, in general, prefer the SuperLearner ensemble to
+the discrete winner in cross-validation? Or in other words, what is the
+advantage of ``blending'' algorithms together and giving them each
+weights, rather than just using the single best algorithm (with best
+being defined as minimizing risk)?
+
+Answer: Broadly speaking, blending models with SuperLearner lets us
+leverage the strengths of multiple models through weights. While a
+single model may perform outperform others in cross-validation on a
+particular dataset, it might not perform equally well across different
+samples of data. By blending multiple models, SuperLearner typically
+achieves more stable and consistent performance across various datasets
+because the ensemble's overall variance is reduced.
+
+\hypertarget{targeted-maximum-likelihood-estimation}{%
+\section{Targeted Maximum Likelihood
+Estimation}\label{targeted-maximum-likelihood-estimation}}
+
+\hypertarget{causal-diagram}{%
+\subsection{Causal Diagram}\label{causal-diagram}}
+
+TMLE requires estimating two models:
+
+\begin{enumerate}
+    \item The outcome model, or the relationship between the outcome and the treatment/predictors, $P(Y|(A,W)$.
+    \item The propensity score model, or the relationship between assignment to treatment and predictors $P(A|W)$
+\end{enumerate}
+
+Using ggdag and daggity, draw a directed acylcic graph (DAG) that
+describes the relationships between the outcome, treatment, and
+covariates/predictors. Note, if you think there are covariates that are
+not related to other variables in the dataset, note this by either
+including them as freestanding nodes or by omitting them and noting
+omissions in your discussion.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# DAG for TMLE}
+\NormalTok{dag }\OtherTok{\textless{}{-}} \FunctionTok{dagitty}\NormalTok{(}\StringTok{\textquotesingle{}dag \{}
+\StringTok{  "Blood Pressure" {-}\textgreater{} "Medication"}
+\StringTok{  "BMI" {-}\textgreater{} "Blood Pressure"}
+\StringTok{  "Chol" {-}\textgreater{} "Blood Pressure"}
+\StringTok{  "Age" {-}\textgreater{} "Blood Pressure"; "Age" {-}\textgreater{} "Mortality"}
+\StringTok{  "Sex" {-}\textgreater{} "Mortality"}
+\StringTok{  "Race" {-}\textgreater{} "Mortality"}
+\StringTok{  "College" {-}\textgreater{} "Income"}
+\StringTok{  "College" {-}\textgreater{} "BMI"}
+\StringTok{  "Race" {-}\textgreater{} "BMI"}
+\StringTok{  "Income" {-}\textgreater{} "Mortality"}
+\StringTok{  "Medication" {-}\textgreater{} "Mortality"}
+\StringTok{  "BMI" {-}\textgreater{} "Mortality"}
+\StringTok{  "Blood Pressure" {-}\textgreater{} "Mortality"}
+\StringTok{  "Income" {-}\textgreater{} "BMI"}
+\StringTok{  "Race" {-}\textgreater{} "Income"}
+\StringTok{  "Race" {-}\textgreater{} "College"}
+\StringTok{\}\textquotesingle{}}\NormalTok{)}
+
+\CommentTok{\# Plot the DAG}
+\FunctionTok{ggdag}\NormalTok{(dag) }\SpecialCharTok{+}
+  \FunctionTok{geom\_dag\_point}\NormalTok{(}\AttributeTok{size =} \DecValTok{20}\NormalTok{) }\SpecialCharTok{+}  \CommentTok{\# Increase node size}
+  \FunctionTok{geom\_dag\_edges}\NormalTok{(}\AttributeTok{size =} \DecValTok{15}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_dag\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{2}\NormalTok{) }\SpecialCharTok{+}  \CommentTok{\# Add text labels}
+  \FunctionTok{theme\_dag\_blank}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{P8Draft_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\hypertarget{tmle-estimation}{%
+\subsection{TMLE Estimation}\label{tmle-estimation}}
+
+Use the \texttt{tmle} package to estimate a model for the effect of
+blood pressure medication on the probability of mortality. Do the
+following:
+
+\begin{enumerate}
+    \item Use the same SuperLearner library you defined earlier
+    \item Use the same outcome model and propensity score model that you specified in the DAG above. If in your DAG you concluded that it is not possible to make a causal inference from this dataset, specify a simpler model and note your assumptions for this step.
+    \item Report the average treatment effect and any other relevant statistics
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x\_train2 }\OtherTok{\textless{}{-}}
+\NormalTok{  x\_train }\SpecialCharTok{\%\textgreater{}\%}
+  \CommentTok{\# drop the target variable}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{blood\_pressure\_medication) }
+
+\NormalTok{treatment\_train }\OtherTok{\textless{}{-}}\NormalTok{ x\_train }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(blood\_pressure\_medication) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{pull}\NormalTok{()}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+
+
+\NormalTok{tmle\_fit }\OtherTok{\textless{}{-}} \FunctionTok{tmle}\NormalTok{(}\AttributeTok{Y =}\NormalTok{ y\_train, }
+                 \AttributeTok{A =}\NormalTok{ treatment\_train, }
+                 \AttributeTok{W =}\NormalTok{ x\_train2, }
+                 \AttributeTok{family =} \StringTok{"binomial"}\NormalTok{,}
+                 \AttributeTok{Q.SL.library =}\NormalTok{ sl\_select,  }\CommentTok{\# For the outcome model}
+                 \AttributeTok{g.SL.library =}\NormalTok{ sl\_select)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tmle\_fit}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  Additive Effect
+##    Parameter Estimate:  -0.3332
+##    Estimated Variance:  0.00015087
+##               p-value:  <2e-16
+##     95% Conf Interval:  (-0.35728, -0.30913)
+## 
+##  Additive Effect among the Treated
+##    Parameter Estimate:  -0.30076
+##    Estimated Variance:  0.00020573
+##               p-value:  <2e-16
+##     95% Conf Interval:  (-0.32887, -0.27265)
+## 
+##  Additive Effect among the Controls
+##    Parameter Estimate:  -0.33937
+##    Estimated Variance:  0.00014868
+##               p-value:  <2e-16
+##     95% Conf Interval:  (-0.36327, -0.31548)
+## 
+##  Relative Risk
+##    Parameter  Estimate: 0.40618
+##    Variance(log scale): 0.0022856
+##                p-value: <2e-16
+##      95% Conf Interval: (0.36985, 0.44608)
+## 
+##  Odds Ratio
+##    Parameter  Estimate: 0.23089
+##    Variance(log scale): 0.0042625
+##                p-value: <2e-16
+##      95% Conf Interval: (0.20316, 0.26241)
+\end{verbatim}
+
+\hypertarget{discussion-questions-1}{%
+\subsection{Discussion Questions}\label{discussion-questions-1}}
+
+Question: What is a ``double robust'' estimator? Why does it provide a
+guarantee of consistency if either the outcome model or propensity score
+model is correctly specified? Or in other words, why does mispecifying
+one of the models not break the analysis? Hint: When answering this
+question, think about how your introductory statistics courses
+emphasized using theory to determine the correct outcome model, and in
+this course how we explored the benefits of matching.
+
+Answer: A double robust estimator guarantees consistency if either the
+outcome model or the propensity score model is correctly specified. This
+consistency is possible because the estimator uses two models: one for
+outcomes based on covariates and treatment, and another for estimating
+treatment assignment probabilities. If the propensity score model is
+accurate, it corrects for confounding, allowing for a fair comparison
+between treated and untreated groups even if the outcome model is wrong.
+On the other hand, a correct outcome model can compensate for
+inaccuracies in the propensity score model, ensuring that the estimation
+of treatment effects remains unbiased.
+
+\hypertarget{ltmle-estimation}{%
+\section{LTMLE Estimation}\label{ltmle-estimation}}
+
+Now imagine that everything you measured up until now was in ``time
+period 1''. Some people either choose not to or otherwise lack access to
+medication in that time period, but do start taking the medication in
+time period 2. Imagine we measure covariates like BMI, blood pressure,
+and cholesterol at that time for everyone in the study (indicated by a
+``\_2'' after the covariate name).
+
+\hypertarget{causal-diagram-1}{%
+\subsection{Causal Diagram}\label{causal-diagram-1}}
+
+Update your causal diagram to incorporate this new information.
+\textbf{Note}: If your groups divides up sections and someone is working
+on LTMLE separately from TMLE then just draw a causal diagram even if it
+does not match the one you specified above.
+
+\textbf{Hint}: Check out slide 27 from Maya's lecture, or slides 15-17
+from Dave's second slide deck in week 8 on matching.
+
+\textbf{Hint}: Keep in mind that any of the variables that end in
+``\_2'' are likely affected by both the previous covariates and the
+first treatment when drawing your DAG.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# DAG for TMLE}
+
+\CommentTok{\# DAG for TMLE}
+\NormalTok{dag2 }\OtherTok{\textless{}{-}} \FunctionTok{dagitty}\NormalTok{(}\StringTok{\textquotesingle{}dag \{}
+\StringTok{  "BP\_1" {-}\textgreater{} "Medication\_1"}
+\StringTok{  "BMI\_1" {-}\textgreater{} "BP\_1"}
+\StringTok{  "Chol\_1" {-}\textgreater{} "BP\_1"}
+\StringTok{  "Age" {-}\textgreater{} "BP\_1"; "Age" {-}\textgreater{} "Mortality"}
+\StringTok{  "Sex" {-}\textgreater{} "Mortality"}
+\StringTok{  "Race" {-}\textgreater{} "Mortality"}
+\StringTok{  "College" {-}\textgreater{} "Income"}
+\StringTok{  "College" {-}\textgreater{} "BMI\_1"}
+\StringTok{  "Race" {-}\textgreater{} "BMI\_1"}
+\StringTok{  "Income" {-}\textgreater{} "Mortality"}
+\StringTok{  "Medication\_1" {-}\textgreater{} "Mortality"}
+\StringTok{  "BMI\_1" {-}\textgreater{} "Mortality"}
+\StringTok{  "BP\_1" {-}\textgreater{} "Mortality"}
+\StringTok{  "Income" {-}\textgreater{} "BMI\_1"}
+\StringTok{  "Race" {-}\textgreater{} "Income"}
+\StringTok{  "Race" {-}\textgreater{} "College"}
+\StringTok{    "BP\_2" {-}\textgreater{} "Medication\_2"}
+\StringTok{    "Medication\_1" {-}\textgreater{} "Medication\_2"}
+\StringTok{"BMI\_2" {-}\textgreater{} "BP\_2"}
+\StringTok{  "Chol\_2" {-}\textgreater{} "BP\_2"}
+\StringTok{  "Medication\_2" {-}\textgreater{} "Mortality"}
+\StringTok{  "BMI\_2" {-}\textgreater{} "Mortality"}
+\StringTok{  "BP\_2" {-}\textgreater{} "Mortality"}
+\StringTok{    "Chol\_1" {-}\textgreater{} "Chol\_2"}
+\StringTok{    "BMI\_1" {-}\textgreater{} "BMI\_2"}
+\StringTok{    "BP\_1" {-}\textgreater{} "BP\_2"}
+\StringTok{\}\textquotesingle{}}\NormalTok{)}
+
+
+
+
+\FunctionTok{ggdag}\NormalTok{(dag2) }\SpecialCharTok{+}
+  \FunctionTok{geom\_dag\_point}\NormalTok{(}\AttributeTok{size =} \DecValTok{20}\NormalTok{) }\SpecialCharTok{+}  
+  \FunctionTok{geom\_dag\_edges}\NormalTok{(}\AttributeTok{size =} \DecValTok{15}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_dag\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{2}\NormalTok{) }\SpecialCharTok{+}  
+  \FunctionTok{theme\_dag\_blank}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{P8Draft_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\hypertarget{ltmle-estimation-1}{%
+\subsection{LTMLE Estimation}\label{ltmle-estimation-1}}
+
+Use the \texttt{ltmle} package for this section. First fit a ``naive
+model'' that \textbf{does not} control for the time-dependent
+confounding. Then run a LTMLE model that does control for any time
+dependent confounding. Follow the same steps as in the TMLE section. Do
+you see a difference between the two estimates?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Naive Model (no time{-}dependent confounding) estimate}
+\CommentTok{\# Prepare your data}
+\NormalTok{naive\_data }\OtherTok{\textless{}{-}}\NormalTok{ heart\_disease }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(age, sex\_at\_birth, income\_thousands, college\_educ, bmi, chol, blood\_pressure, blood\_pressure\_medication, mortality) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename}\NormalTok{(}\AttributeTok{W1 =}\NormalTok{ age, }\AttributeTok{W2 =}\NormalTok{ sex\_at\_birth, }\AttributeTok{W3 =}\NormalTok{ income\_thousands, }\AttributeTok{W4 =}\NormalTok{ college\_educ, }\AttributeTok{W5 =}\NormalTok{ bmi, }\AttributeTok{W6 =}\NormalTok{ chol, }\AttributeTok{W7 =}\NormalTok{ blood\_pressure,}
+         \AttributeTok{A =}\NormalTok{ blood\_pressure\_medication, }\AttributeTok{Y =}\NormalTok{ mortality)}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+
+\CommentTok{\# Fit the naive LTMLE model}
+\NormalTok{naive\_ltmle\_result }\OtherTok{\textless{}{-}} \FunctionTok{ltmle}\NormalTok{(naive\_data,  }\CommentTok{\# Dataset prepared with specific variable names}
+                            \AttributeTok{Anodes =} \StringTok{"A"}\NormalTok{,  }\CommentTok{\# Treatment variable}
+                            \AttributeTok{Ynodes =} \StringTok{"Y"}\NormalTok{,  }\CommentTok{\# Outcome variable}
+                            \AttributeTok{abar =} \DecValTok{1}\NormalTok{,}
+                            \AttributeTok{SL.library =}\NormalTok{ sl\_select)  }\CommentTok{\# Specific treatment level to estimate the effect for}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Qform not specified, using defaults:
+\end{verbatim}
+
+\begin{verbatim}
+## formula for Y:
+\end{verbatim}
+
+\begin{verbatim}
+## Q.kplus1 ~ W1 + W2 + W3 + W4 + W5 + W6 + W7 + A
+\end{verbatim}
+
+\begin{verbatim}
+## 
+\end{verbatim}
+
+\begin{verbatim}
+## gform not specified, using defaults:
+\end{verbatim}
+
+\begin{verbatim}
+## formula for A:
+\end{verbatim}
+
+\begin{verbatim}
+## A ~ W1 + W2 + W3 + W4 + W5 + W6 + W7
+\end{verbatim}
+
+\begin{verbatim}
+## 
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Estimate of time to completion: 2 to 3 minutes
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge  on full data 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in SuperLearner::SuperLearner(Y = Y.subset, X = X.subset, SL.library =
+## SL.library, : Coefficients already 0 for all failed algorithm(s)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge  on full data 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+
+## Warning in FUN(X[[i]], ...): Coefficients already 0 for all failed algorithm(s)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{naive\_ltmle\_result}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call:
+## ltmle(data = naive_data, Anodes = "A", Ynodes = "Y", abar = 1, 
+##     SL.library = sl_select)
+## 
+## TMLE Estimate:  0.2099723
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{naive\_data2 }\OtherTok{\textless{}{-}}\NormalTok{ heart\_disease }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(age, sex\_at\_birth, income\_thousands, college\_educ, }
+\NormalTok{         bmi, chol, blood\_pressure, }
+\NormalTok{         blood\_pressure\_medication, chol\_2, blood\_pressure\_2, }
+\NormalTok{         blood\_pressure\_medication\_2, mortality) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename}\NormalTok{(}\AttributeTok{W1 =}\NormalTok{ age, }\AttributeTok{W2 =}\NormalTok{ sex\_at\_birth, }\AttributeTok{W3 =}\NormalTok{ income\_thousands, }
+         \AttributeTok{W4 =}\NormalTok{ college\_educ, }\AttributeTok{W5 =}\NormalTok{ bmi, }\AttributeTok{L1a =}\NormalTok{ chol, }\AttributeTok{L1b =}\NormalTok{ blood\_pressure, }
+         \AttributeTok{L2a =}\NormalTok{ chol\_2, }\AttributeTok{L2b =}\NormalTok{ blood\_pressure\_2,  }\CommentTok{\# Lnodes are all before A and Y nodes}
+         \AttributeTok{A1 =}\NormalTok{ blood\_pressure\_medication, }
+         \AttributeTok{A2 =}\NormalTok{ blood\_pressure\_medication\_2, }
+         \AttributeTok{Y =}\NormalTok{ mortality)}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+
+\NormalTok{ltmle\_result }\OtherTok{\textless{}{-}} \FunctionTok{ltmle}\NormalTok{(naive\_data2,  }
+                      \AttributeTok{Anodes =} \FunctionTok{c}\NormalTok{(}\StringTok{"A1"}\NormalTok{, }\StringTok{"A2"}\NormalTok{),  }\CommentTok{\# Treatment variables}
+                      \AttributeTok{Lnodes =} \FunctionTok{c}\NormalTok{(}\StringTok{"L1a"}\NormalTok{, }\StringTok{"L1b"}\NormalTok{, }\StringTok{"L2a"}\NormalTok{, }\StringTok{"L2b"}\NormalTok{),  }\CommentTok{\# Time{-}varying covariates}
+                      \AttributeTok{Ynodes =} \StringTok{"Y"}\NormalTok{,  }\CommentTok{\# Outcome variable should be after all Lnodes and Anodes}
+                      \AttributeTok{abar =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),  }\CommentTok{\# Specific treatment level}
+                      \AttributeTok{SL.library =}\NormalTok{ sl\_select)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Qform not specified, using defaults:
+\end{verbatim}
+
+\begin{verbatim}
+## formula for L2a:
+\end{verbatim}
+
+\begin{verbatim}
+## Q.kplus1 ~ W1 + W2 + W3 + W4 + W5 + L1a + L1b + A1
+\end{verbatim}
+
+\begin{verbatim}
+## formula for Y:
+\end{verbatim}
+
+\begin{verbatim}
+## Q.kplus1 ~ W1 + W2 + W3 + W4 + W5 + L1a + L1b + A1 + L2a + L2b +     A2
+\end{verbatim}
+
+\begin{verbatim}
+## 
+\end{verbatim}
+
+\begin{verbatim}
+## gform not specified, using defaults:
+\end{verbatim}
+
+\begin{verbatim}
+## formula for A1:
+\end{verbatim}
+
+\begin{verbatim}
+## A1 ~ W1 + W2 + W3 + W4 + W5 + L1a + L1b
+\end{verbatim}
+
+\begin{verbatim}
+## formula for A2:
+\end{verbatim}
+
+\begin{verbatim}
+## A2 ~ W1 + W2 + W3 + W4 + W5 + L1a + L1b + A1 + L2a + L2b
+\end{verbatim}
+
+\begin{verbatim}
+## 
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Estimate of time to completion: 3 to 7 minutes
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge  on full data 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in SuperLearner::SuperLearner(Y = Y.subset, X = X.subset, SL.library =
+## SL.library, : Coefficients already 0 for all failed algorithm(s)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
+## prediction from a rank-deficient fit may be misleading
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge  on full data 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in SuperLearner::SuperLearner(Y = Y.subset, X = X.subset, SL.library =
+## SL.library, : Coefficients already 0 for all failed algorithm(s)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
+## prediction from a rank-deficient fit may be misleading
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge  on full data 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in SuperLearner::SuperLearner(Y = Y.subset, X = X.subset, SL.library =
+## SL.library, : Coefficients already 0 for all failed algorithm(s)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs,  : 
+##   one multinomial or binomial class has 1 or 0 observations; not allowed
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.glmnet 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs,  : 
+##   one multinomial or binomial class has 1 or 0 observations; not allowed
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.glmnet 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs,  : 
+##   one multinomial or binomial class has 1 or 0 observations; not allowed
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.glmnet 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs,  : 
+##   one multinomial or binomial class has 1 or 0 observations; not allowed
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.glmnet 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs,  : 
+##   one multinomial or binomial class has 1 or 0 observations; not allowed
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.glmnet 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs,  : 
+##   one multinomial or binomial class has 1 or 0 observations; not allowed
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.glmnet 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs,  : 
+##   one multinomial or binomial class has 1 or 0 observations; not allowed
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.glmnet 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs,  : 
+##   one multinomial or binomial class has 1 or 0 observations; not allowed
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.glmnet 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs,  : 
+##   one multinomial or binomial class has 1 or 0 observations; not allowed
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.glmnet 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs,  : 
+##   one multinomial or binomial class has 1 or 0 observations; not allowed
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.glmnet 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs,  : 
+##   one multinomial or binomial class has 1 or 0 observations; not allowed
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.glmnet  on full data 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+\end{verbatim}
+
+\begin{verbatim}
+## Error in (function (Y, X, newX, family, lambda = seq(1, 20, 0.1), ...)  : 
+##   Currently only works with gaussian data
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in FUN(X[[i]], ...): Error in algorithm SL.ridge  on full data 
+##   The Algorithm will be removed from the Super Learner (i.e. given weight 0)
+
+## Warning in FUN(X[[i]], ...): Coefficients already 0 for all failed algorithm(s)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Print the result}
+\FunctionTok{print}\NormalTok{(ltmle\_result)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call:
+## ltmle(data = naive_data2, Anodes = c("A1", "A2"), Lnodes = c("L1a", 
+##     "L1b", "L2a", "L2b"), Ynodes = "Y", abar = c(1, 1), SL.library = sl_select)
+## 
+## TMLE Estimate:  0.1977357
+\end{verbatim}
+
+Controlling for time-dependent confounding slightly decreases the the
+estimate. \#\# Discussion Questions
+
+Question: What sorts of time-dependent confounding should we be
+especially worried about? For instance, would we be concerned about a
+running variable for age the same way we might be concerned about blood
+pressure measured at two different times?
+
+Answer: We should be most concerned with blood pressure,cholesterol, and
+BMI levels because these can change over time and are likely affected by
+the initial treatment. For example, individuals who receive blood
+pressure medication at t1 may have lower pressure levels over time.
+However, these improvements in blood pressure could also be affected by
+other concurrent lifestyle changes, such as changes in diet, or
+exercise. If changes in blood pressure levels are associated with
+changes in mortality risk, failing to account for these time-varying
+changes could lead to biased estimates of treatment effects. Similar
+examples would follow for cholesterol and BMI levels. This is an issue
+for the native TMLE model that does not control for time-dependent
+confounding.
+
+Some of the baseline covariates--specifically college education, income,
+and age--also change over time and and influence treatment selection.
+Increases in income or education levels may improve access to healthcare
+or treatment adherence, while age might affect treatment selection and
+effects. Because these are baseline variables at T1, neither the native
+nor the time-dependent TMLE models can control for their unobserved T2
+variants, which introduces bias into our estimates.
+
+\end{document}
